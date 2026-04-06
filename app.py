@@ -1,22 +1,26 @@
+import streamlit as st
 import google.generativeai as genai
 
-# the "brain" for scanning meals
-def scan_meal(image_path):
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    # we ask the ai to be a nutritionist
-    prompt = "look at this meal and estimate the calories, protein, carbs, and fat. be realistic."
-    response = model.generate_content([prompt, image_path])
-    return response.text
+# basic setup
+st.set_page_config(page_title="critique clone", page_icon="🥷🏽")
+st.title("critique ai clone 💫")
 
-# the habit tracking logic
-habits = {"gym": False, "read": False, "no sugar": False}
+# add as many habits as you want here
+st.header("daily habits 🔪")
+habit1 = st.checkbox("went to the gym")
+habit2 = st.checkbox("drank 2L water")
+habit3 = st.checkbox("no junk food")
+habit4 = st.checkbox("8 hours sleep")
+habit5 = st.checkbox("read for 15 mins")
+habit6 = st.checkbox("hit protein goal")
 
-def check_habit(habit_name):
-    if habit_name in habits:
-        habits[habit_name] = True
-        print(f"safe, you completed {habit_name}! 💫")
+if st.button("save progress"):
+    st.success("habits locked in! 🩸")
 
-# example run
-# meal_stats = scan_meal("chicken_rice.jpg")
-# print(meal_stats)
+# meal scanner section
+st.header("meal scanner 💉")
+uploaded_file = st.file_uploader("scan your meal...", type=["jpg", "jpeg", "png"])
 
+if uploaded_file is not None:
+    st.image(uploaded_file, caption="your meal", use_container_width=True)
+    st.info("ai is analyzing your gains... 😂")
