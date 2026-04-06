@@ -25,7 +25,7 @@ from PIL import Image
 genai.configure(api_key="AIzaSyD2I-jkX5ZqkmYDIox8GnR9qeAZxQNDihs")
 
 def get_gemini_response(input_prompt, image):
-    model = genai.GenerativeModel('gemini-pro-vision')
+    model = genai.GenerativeModel('gemini-1.5-flash-latest')
     response = model.generate_content([input_prompt, image[0]])
     return response.text
 
