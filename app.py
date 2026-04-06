@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # basic setup
 st.set_page_config(page_title="critique clone", page_icon="🥷🏽")
-st.title("critique ai clone 💫")
+st.title("accelerate ai")
 
 # add as many habits as you want here
 st.header("daily habits 🔪")
@@ -13,7 +13,7 @@ habit3 = st.checkbox("no junk food")
 habit4 = st.checkbox("8 hours sleep")
 habit5 = st.checkbox("read for 15 mins")
 habit6 = st.checkbox("hit protein goal")
-
+habit7 = st.checkbox("went for a walk")
 if st.button("save progress"):
     st.success("habits locked in! 🩸")
 
